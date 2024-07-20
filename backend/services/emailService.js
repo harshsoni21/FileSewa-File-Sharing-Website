@@ -1,13 +1,14 @@
 import nodemailer from "nodemailer";
+import { SMTP_EMAIL_ADDRESS,SMTP_EMAIL_PASSWORD,SMTP_HOST,SMTP_PORT } from "../private/doc";
 const sendMail = async ({from, to, subject, text, html}) => {
 
     let transportar = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: process.env.PORT,
+        host: SMTP_HOST,
+        port: SMTP_PORT,
         secure: false,
         auth: {
-            user: process.env.SMTP_EMAIL_ADDRESS,
-            pass: process.env.SMTP_PASSWORD,
+            user: SMTP_EMAIL_ADDRESS,
+            pass: SMTP_EMAIL_PASSWORD,
         }
     })
 

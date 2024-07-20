@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
+import { MONGO_URL } from "../private/doc";
 
 dotenv.config();
 
-const url = env.process.MONGO_URL;
+const url = MONGO_URL;
 const  connectDB = () => {
     mongoose.connect(url, {
         useNewUrlParser: true,

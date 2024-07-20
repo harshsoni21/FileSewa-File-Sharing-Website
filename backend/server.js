@@ -7,11 +7,12 @@ import downloadRoute from "./routes/download.js"
 import path from "path";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { PORT_ADDRESS } from "./private/doc.js";
 
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = PORT_ADDRESS || 3000;
 connectDB();
 app.use(express.static('public'))
 app.use(express.json());
