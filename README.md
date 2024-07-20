@@ -16,8 +16,13 @@ Run the following command to clone the repository
 git clone https://github.com/harshsoni21/FileSewa-File-Sharing-Website
 ```
 Go to  ```backend``` directory to install packages
-```
+
 ```
 cd backend
 npm install
 ```
+
+## Tech-Stack
+- **Frontend:** HTML, CSS, JavaScript, React
+- **Backend:** Node.js Express.js 
+- **DataBase** MongoDB
