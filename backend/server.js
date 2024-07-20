@@ -17,7 +17,12 @@ const PORT = PORT_ADDRESS || 3000;
 connectDB();
 app.use(express.static('public'))
 app.use(express.json());
-app.use(cors());
+
+const corsOption = {
+    origin : ["http://localhost:3000","http://localhost:8080"]
+}
+
+app.use(cors(corsOption));
 
 // Create __dirname equivalent in ES module
 const __filename = fileURLToPath(import.meta.url);
