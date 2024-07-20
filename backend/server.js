@@ -8,6 +8,7 @@ import path from "path";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { PORT_ADDRESS } from "./private/doc.js";
+import cors from "cors";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ const PORT = PORT_ADDRESS || 3000;
 connectDB();
 app.use(express.static('public'))
 app.use(express.json());
+app.use(cors());
 
 // Create __dirname equivalent in ES module
 const __filename = fileURLToPath(import.meta.url);
