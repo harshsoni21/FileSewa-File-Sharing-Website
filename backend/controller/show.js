@@ -1,7 +1,7 @@
 import FileModel from "../model/file.js"
 const showFile = async (req,res)=>{
     try {
-        const file = FileModel.findOne({
+        const file = await FileModel.findOne({
             uuid : req.params.uuid
         })
         if(!file){
@@ -12,9 +12,9 @@ const showFile = async (req,res)=>{
 
         return res.render('download',{
             uuid : file.uuid,
-            filename : file.filename,
-            filesize : file.size,
-            download : `http://localhost:3000/files/download/${file.uuid}`
+            fileName : file.filename,
+            fileSize : file.size,
+            downloadLink : `http://localhost:3000/files/download/${file.uuid}`
         })
     } catch (error) {
         return res.render('download',{

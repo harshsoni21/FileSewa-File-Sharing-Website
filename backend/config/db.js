@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const url = process.env.MONGO_URL;
+const url = process.env.MOGO_URL;
 const  connectDB = () => {
     mongoose.connect(url, {
         useNewUrlParser: true,

@@ -3,6 +3,7 @@ import { connectDB } from "./config/db.js";
 import dotenv from 'dotenv';
 import filerouter from "./routes/files.js";
 import showRouter from "./routes/show.js";
+import downloadRoute from "./routes/download.js"
 import path from "path";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -12,6 +13,7 @@ dotenv.config();
 const app = express();
 const PORT = 3000;
 connectDB();
+app.use(express.static('public'))
 
 // Create __dirname equivalent in ES module
 const __filename = fileURLToPath(import.meta.url);
@@ -23,6 +25,7 @@ app.set('view engine', 'ejs');
 
 app.use('/api/files', filerouter);
 app.use('/files', showRouter);
+app.use('/files/download',downloadRoute)
 
 app.listen(PORT, () => {
     console.log(`Server is listening at http://localhost:${PORT}`);
