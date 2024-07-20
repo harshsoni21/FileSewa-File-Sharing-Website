@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const url = process.env.MOGO_URL;
+const url = "mongodb+srv://harshsoni9119:Aman123@cluster0.zwvvonn.mongodb.net/FileSewa";
 const  connectDB = () => {
     mongoose.connect(url, {
         useNewUrlParser: true,

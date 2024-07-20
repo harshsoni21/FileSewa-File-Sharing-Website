@@ -14,6 +14,7 @@ const app = express();
 const PORT = 3000;
 connectDB();
 app.use(express.static('public'))
+app.use(express.json());
 
 // Create __dirname equivalent in ES module
 const __filename = fileURLToPath(import.meta.url);
@@ -25,7 +26,8 @@ app.set('view engine', 'ejs');
 
 app.use('/api/files', filerouter);
 app.use('/files', showRouter);
-app.use('/files/download',downloadRoute)
+app.use('/files/download',downloadRoute);
+app.use('api/files',filerouter);
 
 app.listen(PORT, () => {
     console.log(`Server is listening at http://localhost:${PORT}`);
