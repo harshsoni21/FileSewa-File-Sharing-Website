@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
-import { MONGO_URL } from "../private/doc";
+import { MONGO_URL } from "../private/doc.js";
 
 dotenv.config();
 

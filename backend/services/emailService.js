@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import { SMTP_EMAIL_ADDRESS,SMTP_EMAIL_PASSWORD,SMTP_HOST,SMTP_PORT } from "../private/doc";
+import { SMTP_EMAIL_ADDRESS,SMTP_EMAIL_PASSWORD,SMTP_HOST,SMTP_PORT } from "../private/doc.js";
 const sendMail = async ({from, to, subject, text, html}) => {
 
     let transportar = nodemailer.createTransport({
