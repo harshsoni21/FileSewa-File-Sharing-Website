@@ -35,7 +35,7 @@ const FileUpload = async (req, res) => {
             });
         }
 
-        // Store file in database
+        // Store file in database -> myfile name at frontend 
         const file = new FileModel({
             filename: req.file.filename, // Corrected field name
             path: req.file.path,
