@@ -31,7 +31,7 @@ npm install
 npm run dev
 ```
 
-## I have Restricted frontend call by fix frontend url like : http://localhost:5173 So Please change cors accordingly 
+## I have Restricted backend call by fix frontend url like : http://localhost:5173 So Please change cors accordingly 
 
 ## Tech-Stack
 - **Frontend:** HTML, CSS, JavaScript, React

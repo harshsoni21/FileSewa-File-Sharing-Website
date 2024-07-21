@@ -78,7 +78,6 @@ function Upload() {
         const response = await axios.post(`${baseURL}/api/files/send`, formData, {
           headers: { "Content-Type": "application/json" },
         });
-        console.log("API response:", response);
         if (response.data.success) {
           showToast("Email Sent");
           document.querySelector(".sharing-container").style.display = "none";
