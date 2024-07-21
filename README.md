@@ -15,12 +15,23 @@ Run the following command to clone the repository
 ```
 git clone https://github.com/harshsoni21/FileSewa-File-Sharing-Website
 ```
+
+Go to  ```backend``` directory to install packages
+```
+cd frontend
+npm install
+npm run dev
+```
+
 Go to  ```backend``` directory to install packages
 
 ```
 cd backend
 npm install
+npm run dev
 ```
+
+## I have Restricted frontend call by fix frontend url like : http://localhost:5173 So Please change cors accordingly 
 
 ## Tech-Stack
 - **Frontend:** HTML, CSS, JavaScript, React
