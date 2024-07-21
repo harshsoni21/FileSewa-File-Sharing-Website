@@ -19,7 +19,7 @@ app.use(express.static('public'))
 app.use(express.json());
 
 const corsOption = {
-    origin : ["http://localhost:3000","http://localhost:8080"]
+    origin : ["http://localhost:5173","http://localhost:8080"]
 }
 
 app.use(cors(corsOption));
