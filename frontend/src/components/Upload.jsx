@@ -61,31 +61,37 @@ function Upload() {
 
     const handleEmailSubmit = async (e) => {
       e.preventDefault();
+      console.log("Form submission triggered");
+
       emailFormRef.current[2].setAttribute("disabled", "true");
       emailFormRef.current[2].innerText = "Sending";
-    
+
       const url = fileUrl;
       const formData = {
         uuid: url.split("/").splice(-1, 1)[0],
         emailTo: emailFormRef.current.elements["to-email"].value,
         emailFrom: emailFormRef.current.elements["from-email"].value,
       };
-    
+
       try {
+        console.log("Sending API request with formData:", formData);
         const response = await axios.post(`${baseURL}/api/files/send`, formData, {
           headers: { "Content-Type": "application/json" },
         });
+        console.log("API response:", response);
         if (response.data.success) {
           showToast("Email Sent");
           document.querySelector(".sharing-container").style.display = "none";
+        } else {
+          showToast("Failed to send email");
         }
       } catch (error) {
+        console.error("Error in sending email:", error);
         showToast(`Error in sending email: ${error.message}`);
         emailFormRef.current[2].removeAttribute("disabled");
         emailFormRef.current[2].innerText = "Send";
       }
     };
-    
 
     if (browseBtn) browseBtn.addEventListener("click", handleBrowseClick);
     if (dropZone) {
@@ -108,7 +114,7 @@ function Upload() {
       if (copyURLBtn) copyURLBtn.removeEventListener("click", handleCopyClick);
       if (emailForm) emailForm.removeEventListener("submit", handleEmailSubmit);
     };
-  }, []);
+  }, [fileUrl]);
 
   const uploadFile = (file) => {
     setUploadStatus("Uploading...");
@@ -205,7 +211,7 @@ function Upload() {
             <div className="input-container">
               <input type="text" id="fileURL" readOnly value={fileUrl} />
               <img
-                src="upload/copy-icon.svg"
+                src="copy-icon.svg"
                 id="copyURLBtn"
                 ref={copyURLBtnRef}
                 alt="Copy to clipboard icon"
